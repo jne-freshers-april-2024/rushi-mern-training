@@ -1,8 +1,8 @@
 const Student = require('../models/student');
 const bcrypt = require('bcrypt');
 const { log } = require('console');
+require('dotenv').config();
 const jwt = require('jsonwebtoken')
-const JWT_SECRET_KEY = "sdfsi283eudsfjhsdfb38ruhsdjkfskjfakjhdfi43wfsjkd";
 const nodemailer = require('nodemailer');
 
 class studentController{
@@ -108,7 +108,7 @@ class studentController{
             console.log(user);
             if(user)
             {
-                const secret = user._id + JWT_SECRET_KEY;
+                const secret = user._id + process.env.JWT_SECRET_KEY;
                 const token = jwt.sign({userID:user._id},secret,{expiresIn:"15m"})
                 const link = `http://localhost:3000/student/reset/${user._id}/${token}`
                 console.log(link);
@@ -116,22 +116,19 @@ class studentController{
                 // Sending Mail 
 
                 const transporter = nodemailer.createTransport({
-                service:'gmail',
-                host: "smtp.gmail.com",
-                port: 587,
+                service:process.env.service,
+                host: process.env.host,
+                port: process.env.port,
                 secure: false, // Use `true` for port 465, `false` for all other ports
-                auth: {
-                    user: "rushikeshkadu066@gmail.com",
-                    pass: "tyfc advo xxgg mjoj ",
-                },
+                auth: process.env.auth
                 });
 
                 // async..await is not allowed in global scope, must use a wrapper
                 async function main() {
                 // send mail with defined transport object
                 const info = await transporter.sendMail({
-                    from: 'rushikeshkadu066@gmail.com', // sender address
-                    to: "rushikesh.kadu@thinkitive.com", // list of receivers
+                    from: process.env.from, // sender address
+                    to: process.env.to, // list of receivers
                     subject: "You have requested for password Reset ✔", // Subject line
                     text: "Reset Password", // plain text body
                     html: `<a href=${link}>Reset</a>`, // html body
@@ -177,7 +174,7 @@ class studentController{
         const {id,token} = req.params;
         console.log(token)
         const user = await Student.findById(id);
-        const new_secret = user._id + JWT_SECRET_KEY;
+        const new_secret = user._id + process.env.JWT_SECRET_KEY;
         try{
             jwt.verify(token,new_secret);
             if(password && confirm_password)
