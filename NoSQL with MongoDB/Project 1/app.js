@@ -1,32 +1,63 @@
 const dbConnection = require('./mongodb');
 
 
+dbConnection()
+.then(response=>{
+    console.log("Connected to Database");
+})
+.catch(err)
+{
+    console.log("Error While Connecting with Database:",err)
+}
+
+
 const getData = async ()=>{
-    let collection = await dbConnection();
-    const response = await collection.find().toArray();
+    try{
+        const response = await collection.find().toArray();
+    }
+    catch(err)
+    {
+        console.log("Error While getting Data:",err)
+    }
 }
 
 
 const insertData = async ()=>{
-    let collection = await dbConnection();
-    let result = await collection.insertOne({name:"Vedant",salary:50000,age:23})
-    if(result.acknowledged)
-       console.log("Data inserted");
+    try{
+        let result = await collection.insertOne({name:"Vedant",salary:50000,age:23})
+        if(result.acknowledged)
+        console.log("Data inserted");
+    }
+    catch(err)
+    {
+        console.log("Error while Reading Data :",err)
+    }
 }
+
 
 
 const updateData = async (oldData, newData)=>{
-    let collection = await dbConnection();
-    let result = await collection.updateOne(oldData,{$set:newData})
-    if(result.acknowledged)
-        console.log("Data Updated")
+    try{
+        let result = await collection.updateOne(oldData,{$set:newData})
+        if(result.acknowledged)
+            console.log("Data Updated")
+    }
+    catch(err)
+    {
+        console.log("Error while Updating Data:",err)
+    }
 }
 
 const deleteData = async(data)=>{
-    let collection = await dbConnection();
-    let result = await collection.deleteOne(data)
-    if(result.acknowledged)
-        console.log("Data Deleted")
+    try{
+        let result = await collection.deleteOne(data)
+        if(result.acknowledged)
+            console.log("Data Deleted")
+    }
+    catch(err)
+    {
+        console.log("Error While Updating Data:",err)
+    }
 }
 // getData()
 // insertData()
