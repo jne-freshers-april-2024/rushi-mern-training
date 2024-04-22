@@ -5,4 +5,3 @@ In the context of ExpressJS
 2) Pagination is used to improve performance and user experience
 3) Pagination means when user fetch all data from Database/external API and display that data on 
    different pages by providing navigation links instead of displaying on single page
-4) 
