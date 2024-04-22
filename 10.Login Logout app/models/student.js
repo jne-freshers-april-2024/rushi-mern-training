@@ -7,6 +7,8 @@ let studentSchema = new mongoose.Schema({
     email :  {type:String, required:true,trim:true,unique:true},
     password :  {type:String, required:true,trim:true}
 });
+studentSchema.index({ email: 1 }, { unique: true });
+const Student = mongoose.model('student',studentSchema)      // define mongoose model for student collection
 
 
-module.exports = studentSchema;
+module.exports = Student;

@@ -1,6 +1,5 @@
 const connectDb = require('../db/studentConnect');
-const mongoose = require('mongoose')
-const studentSchema = require('../models/student');
+const Student = require('../models/student');
 const bcrypt = require('bcrypt');
 
 class studentController{
@@ -28,10 +27,7 @@ class studentController{
         try{
             let {username:student_username,email:student_email,password:student_password} = req.body;
             console.log({student_username,student_email,student_password});
-            let db = await connectDb();                 // connect with Temp database
-            const Student = mongoose.model('student',studentSchema)      // define mongoose model for student collection
-            studentSchema.index({ email: 1 }, { unique: true });
-
+            
             const student_doc = new Student({
                 username:student_username,
                 email:student_email,
@@ -67,8 +63,6 @@ class studentController{
         // console.log(req.body)
         // console.log(student_email)
         console.log(student_username)
-        let db = await connectDb();  
-        const Student = mongoose.model('student',studentSchema) 
         const result =  await Student.findOne({email:student_username})
         const isMatch = await bcrypt.compare(student_password,result.password)
         console.log(result)
