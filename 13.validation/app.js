@@ -3,11 +3,11 @@ const app = express()
 const connectDb = require('./db/studentConnect');
 const bodyParser = require('body-parser');
 const student = require('./routes/student')
+const url = 'mongodb://localhost:27017/Temp';
 
-
+connectDb(url);                 // connect with Temp database
 app.use(bodyParser.urlencoded({extended:false})) 
 // Connecting with database
-connectDb('mongodb://localhost:27017/Temp');                 // connect with Temp database
 
 app.use('/student',student)
 

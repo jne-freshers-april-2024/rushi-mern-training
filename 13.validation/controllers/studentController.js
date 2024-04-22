@@ -2,7 +2,8 @@ const Student = require('../models/student');
 const bcrypt = require('bcrypt');
 const { log } = require('console');
 const jwt = require('jsonwebtoken')
-const JWT_SECRET_KEY = "sdfsi283eudsfjhsdfb38ruhsdjkfskjfakjhdfi43wfsjkd";
+require('dotenv').config()
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const nodemailer = require('nodemailer');
 
 class studentController{
@@ -116,22 +117,19 @@ class studentController{
                 // Sending Mail 
 
                 const transporter = nodemailer.createTransport({
-                service:'gmail',
-                host: "smtp.gmail.com",
-                port: 587,
+                service:process.env.service,
+                host: process.env.host,
+                port: process.env.port,
                 secure: false, // Use `true` for port 465, `false` for all other ports
-                auth: {
-                    user: "rushikeshkadu066@gmail.com",
-                    pass: "tyfc advo xxgg mjoj ",
-                },
+                auth: process.env.auth
                 });
 
                 // async..await is not allowed in global scope, must use a wrapper
                 async function main() {
                 // send mail with defined transport object
                 const info = await transporter.sendMail({
-                    from: 'rushikeshkadu066@gmail.com', // sender address
-                    to: "rushikesh.kadu@thinkitive.com", // list of receivers
+                    from: process.env.from, // sender address
+                    to: process.env.to, // list of receivers
                     subject: "You have requested for password Reset ✔", // Subject line
                     text: "Reset Password", // plain text body
                     html: `<a href=${link}>Reset</a>`, // html body
