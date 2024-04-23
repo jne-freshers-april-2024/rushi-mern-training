@@ -1,0 +1,23 @@
+
+
+.gradient-background {
+    background: linear-gradient(to right, #2B867B, #20CBC7); /* Purple to blue gradient */
+    color: white; /* Text color */
+    padding: 30px; /* Padding around the form */
+    border-radius: 10px; /* Rounded corners */
+  }
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent input fields */
+    border: none; /* No border */
+    color: #333; /* Dark text for input */
+  }
+  .form-control:focus {
+    box-shadow: none; /* No focus shadow */
+  }
+  .btn-custom {
+    background: #2575fc; /* Button color */
+    border: none; /* No border */
+  }
+  .btn-custom:hover {
+    background: #6a11cb; /* Hover color */
+  }
