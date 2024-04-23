@@ -1,9 +1,11 @@
 import './App.css';
-import SI from './components/si';
+import Counter from './components/reducer';
+// import SI from './components/si';
 
 function App() {
   return (
-    <SI/>
+    // <SI/>
+    <Counter/>
   );
 }
 
