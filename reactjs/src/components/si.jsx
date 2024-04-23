@@ -2,6 +2,7 @@ import { useRef, useState,useEffect} from 'react';
 import './si.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import SiDetails from './siDetails';
+import Input from './Input/Input';
 
 const SI = ()=>{
     const inputRef = useRef(null);
@@ -39,23 +40,40 @@ const SI = ()=>{
                 <div className="col-md-6">
                 <div className="gradient-background">
                     <h3 className="text-center">Simple Interest Calculator</h3>
-
                     <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="principle">Enter Principle :</label>
-                        <input onChange={()=>{setPrinciple(document.getElementById('principle').value)}} 
-                        type="number" ref={inputRef} value={principle} className="form-control" id="principle" placeholder="Enter Principle"></input>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="rate">Enter Rate:</label>
-                        <input onChange={()=>{setRate(document.getElementById('rate').value)}} 
-                        type="number" value={rate} className="form-control" id="rate" placeholder="Enter Rate"></input>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="time">Enter Time:</label>
-                        <input onChange={()=>{setTime(document.getElementById('time').value)}} type="number" className="form-control" 
-                        id="time" value={time} placeholder="Enter Time"></input>
-                    </div>
+                    
+                        <Input 
+                            onChange={()=>{setPrinciple(document.getElementById('principle').value)}} 
+                            type="number"
+                            ref={inputRef}
+                            value={principle} 
+                            className="form-control"
+                            id="principle"
+                            placeholder="Enter Principle"
+                            label="Enter Principle"
+                            
+                        />
+                        
+                        <Input 
+                            onChange={()=>{setRate(document.getElementById('rate').value)}} 
+                            type="number" 
+                            value={rate} 
+                            className="form-control" 
+                            id="rate" 
+                            placeholder="Enter Rate"
+                            label="Enter Rate"
+                        />
+                   
+                        <Input 
+                            onChange={()=>{setTime(document.getElementById('time').value)}} 
+                            type="number" 
+                            className="form-control" 
+                            id="time"   
+                            value={time} 
+                            placeholder="Enter Time"
+                            label="Enter Time"
+                        />
+    
                     <div className="text-center">
                         <button type="submit" className="btn btn-primary mt-3 p-2">Calculate Interest</button>
                     </div>
