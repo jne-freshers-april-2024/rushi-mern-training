@@ -24,28 +24,37 @@ const FetchProduct = () => {
     fetchData();
   }, []);
 
-  if(isLoading)
-     return(<h1>Loading ....</h1>)
-  else
-  {
-        return (
+  return (
+    <div>
+        { isLoading ? (
+            <h1>Loading ....</h1>
+        ) : (
             <>
-            <h1 className="product-list">Products :</h1>  
+            <h1 className="product-list">Products :</h1>
             <ul>
                 {products.map((product) => (
                 <div className="product-item" key={product.id}>
-                    <li>Id:{product.id}</li>
-                    <li>Title:{product.title}</li>
-                    <li>Brand:{product.brand}</li>
-                    <li>Price:{product.price}</li>
-                    <li>Rating:{product.rating}</li>
+                    <li>Id: {product.id}</li>
+                    <li>Title: {product.title}</li>
+                    <li>Brand: {product.brand}</li>
+                    <li>Price: {product.price}</li>
+                    <li>Rating: {product.rating}</li>
                 </div>
                 ))}
             </ul>
-
             </>
-        );
-  }
+        )}
+    </div>
+);
+
 };
 
 export default FetchProduct;
+
+
+
+
+
+
+
+
