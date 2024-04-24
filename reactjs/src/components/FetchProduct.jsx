@@ -4,10 +4,11 @@ import "./FetchProduct.css";
 
 const FetchProduct = () => {
   const [products, setProducts] = useState([]);
-  const [loading,setLoading] = useState(true);
+  const [isLoading,setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       try {
         const response = await axios.get(
           "https://dummyjson.com/products?limit=100"
@@ -23,7 +24,7 @@ const FetchProduct = () => {
     fetchData();
   }, []);
 
-  if(loading)
+  if(isLoading)
      return(<h1>Loading ....</h1>)
   else
   {
