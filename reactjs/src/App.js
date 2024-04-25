@@ -1,5 +1,6 @@
 import "./App.css";
-import FetchPosts from "./components/fetchPosts";
+import Registration from "./components/Login";
+// import FetchPosts from "./components/fetchPosts";
 // import Counter from "./components/CounterApp";
 // import FetchProduct from "./components/FetchProduct";
 // import ActiveUsers from './components/ActiveUsers';
@@ -10,7 +11,8 @@ function App() {
   // <Dashboard />;
   // <Counter/>
   // <FetchProduct/>
-  <FetchPosts/>
+  // <FetchPosts/>
+  <Registration/>
 )
 }
 
