@@ -1,0 +1,33 @@
+.contact-form {
+    background: #f9f9f9; /* Light background */
+    padding: 30px; /* Padding around the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 500px; /* Maximum width */
+    margin: 30px auto; /* Center the form */
+  }
+
+  .contact-form h2 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark gray */
+    font-size: 28px; /* Font size for the heading */
+    font-family: 'Arial', sans-serif; /* Font family */
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 20px; /* Space between form groups */
+  }
+
+  .contact-form .btn {
+    background: #007bff; /* Primary Bootstrap blue */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for the button */
+    font-weight: bold; /* Bold text */
+    transition: background 0.3s; /* Smooth transition on hover */
+  }
+
+  .contact-form .btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+  }
