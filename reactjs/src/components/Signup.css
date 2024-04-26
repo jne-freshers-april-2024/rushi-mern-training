@@ -1,0 +1,85 @@
+/* Reuse the same styles from the previous example */
+
+/* Apply consistent base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Use the same font */
+  }
+  
+  /* Center the form in the viewport */
+  .login-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 100vh; /* Full viewport height */
+    background: #f5f5f5; /* Light gray background */
+  }
+  
+  /* Main box for the form */
+  .login-box {
+    width: 517px; 
+    padding: 30px; /* Padding around the form */
+    background: white; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center; /* Center text */
+  }
+  
+  /* Heading styling */
+  .login-box h2 {
+    font-size: 24px; /* Larger font size */
+    color: #333; /* Dark gray text */
+    margin-bottom: 20px; /* Space below heading */
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 20px; /* Space between form elements */
+  }
+  
+  /* Input field styling */
+  .form-control {
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the input */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Focus effect for input fields */
+  .form-control:focus {
+    border-color: #007bff; /* Blue border on focus */
+  }
+  
+  /* Button styling */
+  .btn {
+    background: #007bff; /* Primary Bootstrap blue */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    transition: background 0.3s ease; /* Smooth transition */
+  }
+  
+  .btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Styling for error messages */
+  .error-message {
+    color: red; /* Red for error messages */
+    margin-bottom: 20px; /* Space below error messages */
+    text-align: center; /* Center text */
+  }
+  
+  /* Links for additional navigation */
+  a {
+    color: #007bff; /* Consistent blue color */
+    text-decoration: none; /* No underline */
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
